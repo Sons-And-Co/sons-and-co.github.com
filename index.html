@@ -31,7 +31,7 @@
       }
       .container {
         width: 800px;
-        height: 500px;
+        height: 420px;
         padding: 10px;
         margin: 0 auto;
         position: relative;
@@ -307,6 +307,37 @@
       .circular--square {
         border-radius: 50%;
       }
+      .hank {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+      }
+      .misha {
+        display: none;
+      }
+
+      .anton {
+        display: none;
+      }
+      .misha.visible {
+        display: block;
+        animation: fade-slide-in 1s ease-out forwards;
+        /* animation-iteration-count: infinite; */
+      }
+      .anton.visible {
+        display: block;
+        animation: fade-slide-in 1s ease-out forwards;
+        /* animation-iteration-count: infinite; */
+      }
+
+      @keyframes fade-slide-in {
+        from {
+          transform: translateY(-5rem);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
     </style>
     <script>
       window.open = function () {};
@@ -351,35 +382,35 @@
       <div class="text">
         <h1>Дорогая мамулька!</h1>
         <h4>
-          Твои самые любимые предатели родины спешат поздравить тебя с днём
+          Твои самые любимые предатели родины спешат поздравить с днём
           рождения!!! Желаем тебе никогда не болеть, быть на позитиве и не
           скучать, ведь когда-нибудь, славные сыновья встретят тебя на земле
-          обетованной, на земле, свободной от тирании и других ужасов. И
+          обeтованной, на земле, свободной от тирании и других ужасов. И
           произойдет великое воссоединение, которому не было равных доселе.
         </h4>
-        <h5>Твои Сыночки</h5>
-        <h6>P.S. А Хэнка для красоты добавили =)</h6>
+        <h5>P.S. Нажми на нос =)</h5>
+        <h6>Твои сыночки</h6>
       </div>
     </div>
     <div class="photos">
-      <div class="anton">
+      <div id="brat" class="anton">
         <img
           class="circular--square"
           src="https://i.ibb.co/DM2kf0M/Screenshot-2022-11-30-at-21-19-57.png"
           width="350"
         />
       </div>
-      <div class="hank">
+      <div id="dog" class="hank">
         <img
           class="circular--square"
           src="https://i.ibb.co/kJjwZ7m/hank.jpg"
           width="350"
         />
       </div>
-      <div class="misha">
+      <div id="fuck" class="misha">
         <img
           class="circular--square"
-          src="https://i.ibb.co/9qkVkVj/Screenshot-2022-11-30-at-21-14-21.png"
+          src="https://downloader.disk.yandex.ru/preview/6961d1eb764ae63e95c14a0686cf37d6f1e888efbb7084815407ca313db496b1/6387d6c9/ECgdNd6KbsvDizRez2SYDcwyrQSN-9yWYQgNO-dDAsk0pNWCFpj852XTsnaCKCLnmH5V7KLMmKXIDM-r2bJsMA%3D%3D?uid=0&filename=Screenshot%202022-11-30%20at%2021.14.21.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048"
           width="350"
         />
       </div>
@@ -389,6 +420,15 @@
       if (document.location.search.match(/type=embed/gi)) {
         window.parent.postMessage("resize", "*");
       }
+      const misha = document.getElementById(`brat`);
+      const hank = document.getElementById(`dog`);
+      const anton = document.getElementById(`fuck`);
+
+      const move = () => {
+        misha.classList.toggle(`visible`);
+        anton.classList.toggle(`visible`);
+      };
+      hank.addEventListener(`click`, move);
     </script>
   </body>
 </html>
